@@ -50,8 +50,8 @@ jobs:
         run: echo "Ejecutando Job F"
 
   test-manual:
+    needs: job-f
     uses: ./.github/workflows/run-manual.yml
     if: ${{ github.event_name == 'workflow_dispatch' }}
     with:
-      job_name: "Manual desde B"
-      dependency: "job-b"
+      job_name: "Manual desde F"
