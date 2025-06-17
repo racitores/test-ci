@@ -1,0 +1,49 @@
+name: Test Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  job-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Ejecutando Job A"
+
+  job-b:
+    needs: job-a
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Ejecutando Job B"
+
+  job-c:
+    needs: job-b
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Ejecutando Job C"
+
+  job-d:
+    needs: job-a
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Ejecutando Job D"
+
+  job-e:
+    needs: job-a
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Ejecutando Job E"
+
+  job-f:
+    needs: job-e
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Ejecutando Job F"
